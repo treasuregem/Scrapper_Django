@@ -15,3 +15,5 @@ class Search(models.Model):
     # To create plural for search with 'es'
     class Meta:
         verbose_name_plural = 'Searches'
+
+

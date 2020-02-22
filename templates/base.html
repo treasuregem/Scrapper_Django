@@ -5,36 +5,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Scrapper List</title>
+    <title>Classified List</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
-
-
-
-
 </head>
 <body>
 <nav>
     <div class="container nav-wrapper">
-        <a href="/" class="brand-logo">Scrapper List</a>
+        <a href="/" class="brand-logo">Classified List</a>
         <ul id="nav-mobile" class="right">
             <li><a href="/">Home</a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
-    <h1 style="text-align: center">What do you want to search for on Scrapper List?</h1>
+    <h1 style="text-align: center">What do you want to search for on Classified List?</h1>
     <div class="row">
         <div class="col s4">
             <!-- Promo Content 1 goes here -->
             <div class="center">
                 <i class="large material-icons" style="color: #EE6E73">flash_on</i>
-                <p>Fast Scrapper's web scraper</p>
+                <p>Fast Classified web scraper</p>
                 <p class="light center">Scrape away right here with a beautiful GUI.</p>
             </div>
         </div>
@@ -44,7 +39,7 @@
             <div class="center">
                 <i class="large material-icons" style="color: orange">camera</i>
                 <p>Filter your searches</p>
-                <p class="light center">We built in functionality to filter based on pricing.</p>
+                <p class="light center">We built in functionality to filter based on city.</p>
             </div>
         </div>
 
@@ -52,13 +47,41 @@
             <!-- Promo Content 3 goes here -->
             <div class="center">
                 <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
-                <p>A much sexier front-end to Scrapper List</p>
+                <p>A simple front-end to Classified List</p>
                 <p class="light center">We built this with ❤️</p>
             </div>
         </div>
     </div>
+
     <form action="{% url 'new_search' %}" method = "post">
         {% csrf_token %}
+
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01"><b>Select City</b></label>
+            </div>
+            <select class="custom-select" name = "city" id="inputGroupSelect01" style="display: block;">
+                <option value="ahmedabad">Ahmedabad</option>
+                <option value="bangalore">Bangalore</option>
+                <option value="bhubaneswar">Bhubaneswar</option>
+                <option value="chandigarh">Chandigarh</option>
+                <option selected value="chennai">Chennai</option>
+                <option value="delhi">Delhi</option>
+                <option value="goa">Goa</option>
+                <option value="hyderabad">Hyderabad</option>
+                <option value="indore">Indore</option>
+                <option value="jaipur">Jaipur</option>
+                <option value="kerala">Kerala</option>
+                <option value="kolkata">Kolkata</option>
+                <option value="lucknow">Lucknow</option>
+                <option selected value="mumbai">Mumbai</option>
+                <option value="pune">Pune</option>
+                <option value="surat">Surat</option>
+            </select>
+        </div>
+        <br/>
+
         <input type="text" name="search" placeholder="Search">
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right">send</i>
@@ -67,8 +90,6 @@
     {%  block content %}
     {%  endblock content %}
 </div>
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
